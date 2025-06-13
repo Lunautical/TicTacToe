@@ -7,7 +7,7 @@ gameGrid.addEventListener("click", (e) => {
   if (cell.textContent !== "") return;
   cell.textContent = "X";
   gameBoard[Number(e.target.id[e.target.id.length - 1])] = "X";
-  console.log(gameBoard);
+  if (gameover()) return;
   aiTurn();
 });
 
@@ -21,4 +21,8 @@ const aiTurn = () => {
       break;
     }
   }
+};
+
+const gameover = () => {
+  return !gameBoard.includes(null);
 };
