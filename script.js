@@ -1,6 +1,10 @@
+// HTML Elements
+
 const gameGrid = document.getElementById("game-grid");
 const statusText = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
+
+// Global Elements
 
 const gameBoard = new Array(9).fill(null);
 
@@ -16,6 +20,8 @@ const wins = [
   [1, 4, 7],
   [2, 5, 8],
 ];
+
+// Events
 
 gameGrid.addEventListener("click", (e) => {
   if (gameOver) return;
@@ -43,7 +49,9 @@ const playerTurn = (cellID) => {
   gameBoard[Number(cellID[cellID.length - 1])] = "X";
 };
 
-const aiTurn = () => {
+// Gameloop functions
+
+// const aiTurn = () => {
   while (true) {
     const cellNum = Math.floor(Math.random() * 9);
     const cell = document.getElementById(`grid-item-${cellNum}`);
@@ -53,7 +61,18 @@ const aiTurn = () => {
       break;
     }
   }
-};
+// };
+
+const aiTurn = () => {
+  const scores = gameBoard.map((item) => {
+  return  item === null ? 0 : null;
+  })
+  // Guaranteed win 100_00
+  // Block win 10_00
+  // Two in a row with a blank 100
+  // Has empty row | has empty column | has empty diagonal 10
+  // Is corner 1
+}
 
 const checkGameOver = () => {
   for (const win of wins) {
@@ -73,3 +92,5 @@ const checkGameOver = () => {
     statusText.textContent = "Draw!";
   }
 };
+
+// Helper Functions
