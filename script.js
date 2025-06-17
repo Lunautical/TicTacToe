@@ -42,6 +42,7 @@ restartBtn.addEventListener("click", () => {
   const cells = document.getElementsByClassName("grid-item");
   for (const cell of cells) {
     cell.textContent = "";
+    cell.classList.remove('player-win', 'computer-win', 'draw');
   }
 });
 
@@ -133,13 +134,23 @@ const checkGameOver = () => {
     ) {
       gameOver = true;
       if (gameBoard[win[0]] === "X") statusText.textContent = "Player Wins!";
-      else statusText.textContent = "Computer Wins!";
-      return;
+      for (const id of win) {
+        const item = document.getElementById(`grid-item-${id}`);
+        item.classList.add("player-win");
+      }
+    } else statusText.textContent = "Computer Wins!";
+    for (const id of win) {
+      const item = document.getElementById(`grid-item-${id}`);
+      item.classList.add("computer-win");
     }
+    return;
   }
   if (gameBoard.includes(null)) {
     gameOver = true;
     statusText.textContent = "Draw!";
+    for (let i = 0; i < 9; i++) {
+      item.classList.add("draw");
+    }
   }
 };
 

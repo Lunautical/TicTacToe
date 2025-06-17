@@ -55,3 +55,14 @@ main {
   font-size: 64px;
 }
 
+.computer-win {
+  background-color: red;
+}
+
+.player-win {
+  background-color: green;
+}
+
+.draw {
+  background-color: yellow;
+}
