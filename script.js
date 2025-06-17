@@ -149,6 +149,7 @@ const checkGameOver = () => {
     gameOver = true;
     statusText.textContent = "Draw!";
     for (let i = 0; i < 9; i++) {
+      const item = document.getElementById(`grid-item${i}`);
       item.classList.add("draw");
     }
   }
