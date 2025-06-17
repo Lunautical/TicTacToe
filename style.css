@@ -41,3 +41,17 @@ main {
   text-align: center;
   margin: 20px 0px;
 }
+
+.filled-grid-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filled-grid-item > p {
+  text-align: center;
+  font-size: 64px;
+}
+
